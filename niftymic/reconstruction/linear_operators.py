@@ -114,9 +114,11 @@ class LinearOperators(object):
         # space
         cov = self._get_covariance[self._deconvolution_mode](
             reconstruction_itk, slice_itk, slice_spacing)
-
+        # cov_array = itk.Array[itk.D](cov.flatten())  # itk.D stands for 'double'
+        # # cov_array[:] = cov.flatten()  # Copy the flattened covariance into the FixedArray
+        cov_array = cov.flatten().tolist()
         reconstruction_itk.Update()
-        self._filter_oriented_gaussian.SetCovariance(cov.flatten())
+        self._filter_oriented_gaussian.SetCovariance(cov_array)
         self._filter_oriented_gaussian.SetInput(reconstruction_itk)
         self._filter_oriented_gaussian.SetOutputParametersFromImage(slice_itk)
         self._filter_oriented_gaussian.UpdateLargestPossibleRegion()

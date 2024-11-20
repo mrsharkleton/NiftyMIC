@@ -49,7 +49,12 @@ class JointImageMaskBuilder(object):
             mask_sitk += stack_mask_sitk
 
         thresholder = sitk.BinaryThresholdImageFilter()
-        mask_sitk = thresholder.Execute(mask_sitk, 0, 0.5, 0, 1)
+        thresholder.SetLowerThreshold(0)
+        thresholder.SetUpperThreshold(0.5)
+        thresholder.SetInsideValue(1)
+        thresholder.SetOutsideValue(0)
+        # mask_sitk = thresholder.Execute(mask_sitk, 0, 0.5, 0, 1)
+        mask_sitk = thresholder.Execute(mask_sitk)
 
         if self._dilation_radius > 0:
             dilater = sitk.BinaryDilateImageFilter()

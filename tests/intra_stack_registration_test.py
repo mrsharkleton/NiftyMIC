@@ -13,7 +13,7 @@ import numpy as np
 import unittest
 import sys
 import os
-from scipy.ndimage import imread
+from imageio import imread
 
 import pysitk.simple_itk_helper as sitkh
 import pysitk.python_helper as ph

@@ -91,7 +91,7 @@ def main():
     if args.reconstruction_type not in ["TK1L2", "TVL2", "HuberL2"]:
         raise IOError("Reconstruction type unknown")
 
-    if np.alltrue([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
+    if np.all([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
         raise ValueError(
             "output filename '%s' invalid; "
             "allowed image extensions are: %s" % (

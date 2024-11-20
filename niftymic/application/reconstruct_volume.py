@@ -134,7 +134,7 @@ def main():
         raise ValueError("v2v-method must be in {%s}" % (
             ", ".join(V2V_METHOD_OPTIONS)))
 
-    if np.alltrue([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
+    if np.all([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
         raise ValueError(
             "output filename invalid; allowed extensions are: %s" %
             ", ".join(ALLOWED_EXTENSIONS))

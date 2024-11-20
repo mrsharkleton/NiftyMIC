@@ -90,7 +90,7 @@ class DataPreprocessing:
         time_start = ph.start_timing()
 
         # if no mask is provided, use unity stacks for all masks
-        is_unity_mask = np.alltrue([s.is_unity_mask() for s in self._stacks])
+        is_unity_mask = np.all([s.is_unity_mask() for s in self._stacks])
         if is_unity_mask:
             ph.print_info(
                 "Keep unity masks for all stacks. "

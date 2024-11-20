@@ -56,7 +56,7 @@ def main():
     args = input_parser.parse_args()
     input_parser.print_arguments(args)
 
-    if np.alltrue([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
+    if np.all([not args.output.endswith(t) for t in ALLOWED_EXTENSIONS]):
         raise ValueError(
             "output filename invalid; allowed extensions are: %s" %
             ", ".join(ALLOWED_EXTENSIONS))
