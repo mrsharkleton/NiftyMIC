@@ -14,4 +14,4 @@ seaborn>=0.8.1
 SimpleITK>=1.2.0
 simplereg>=0.3.2
 six>=1.11.0
-iamgeio
+imageio
